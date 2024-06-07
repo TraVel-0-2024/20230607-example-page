@@ -1,5 +1,5 @@
 ---
-title: "Lesson_12"
+title: "index"
 author: "Wenling Chen"
 date: "2024-06-07"
 output: html_document
@@ -28,5 +28,3 @@ data = abdom: 这指定了使用abdom数据集来拟合模型。
 method = mixed(1,20): 这指定了拟合模型时使用混合优化方法，其中1是优化算法的类型，20是最大迭代次数。
 
 rm(mod)用于删除mod对象，释放内存空间。
-```
-
