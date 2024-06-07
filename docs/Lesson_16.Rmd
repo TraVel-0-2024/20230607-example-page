@@ -1,0 +1,32 @@
+---
+title: "Lesson_12"
+author: "Wenling Chen"
+date: "2024-06-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(gamlss)
+
+data(abdom)
+mod<-gamlss(y~pb(x),sigma.fo=~pb(x),family=BCT, data=abdom, method=mixed(1,20))
+plot(mod)
+
+rm(mod)
+```
+
+加载了gamlss包中自带的abdom数据集
+
+y ~ pb(x): 这是响应变量y和预测变量x之间的关系。这里，pb(x)表示x的多项式B样条基函数，用于拟合非线性关系。
+sigma.fo = ~ pb(x): 这表示模型的尺度参数（即误差的标准差）也依赖于x的多项式B样条基函数。
+family = BCT: 这指定了模型的分布族为Box-Cox t分布，该分布族可以对数据的偏态进行建模。
+data = abdom: 这指定了使用abdom数据集来拟合模型。
+method = mixed(1,20): 这指定了拟合模型时使用混合优化方法，其中1是优化算法的类型，20是最大迭代次数。
+
+rm(mod)用于删除mod对象，释放内存空间。
+```
+
